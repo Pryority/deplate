@@ -16,8 +16,8 @@ type FeModel = {
 
 type BeModel = {
   backend_id: number;
-  framework: number;
-  typescript: number;
+  ponder: number;
+  database: number;
 };
 
 type TemplParams = {
