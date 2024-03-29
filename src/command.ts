@@ -1,15 +1,25 @@
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
+import { create_frontend_handler } from "./handler";
 
 yargs(hideBin(process.argv))
   .command(
-    "init <deplate>",
-    "Creates a new Web3 App Template",
-    (yargs) =>
-      yargs.positional("deplate", {
-        description: "The content of the template",
-        type: "string",
+    "frontend <framework> <typescript>",
+    "Creates a new Frontend for the Template",
+    (yargs) => {
+      yargs.positional("framework", {
+        description: "The frontend framework of the template",
+        type: "number",
+      });
+      yargs.positional("typescript", {
+        description: "Check if using Typescript or Javascript",
+        type: "boolean",
+      });
+    },
+    (argv) =>
+      create_frontend_handler({
+        framework: argv.framework as number,
+        typescript: argv.typescript as boolean,
       }),
-    (argv) => console.log(argv.deplate),
   )
   .parse();
