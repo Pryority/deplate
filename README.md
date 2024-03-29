@@ -1,4 +1,6 @@
-# deplate
+# DePlate
+
+## A Web3 App Template CLI
 
 To install dependencies:
 
