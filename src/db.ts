@@ -33,5 +33,11 @@ export function create_new_frontend(params: FeParams): void {
   query.run(framework, typescript);
 }
 
+export function get_frontend(): void {
+  const query = db.query(`SELECT * FROM frontend`);
+  const frontend = query.run();
+  return frontend;
+}
+
 export function create_new_backend({}): void {}
 export function create_new_template({}): void {}
