@@ -23,11 +23,18 @@ test("Gets frontend options from db", () => {
   });
 });
 
-test("Gets frontend options from db", () => {
+test("Gets backend options from db", () => {
   const params = {
     ponder: true,
     database: 0,
   } as BeParams;
+
   create_new_backend(params);
-  expect(get_backend());
+  const newBackend = get_backend();
+
+  expect(newBackend).toEqual({
+    backend_id: 1,
+    ponder: params.ponder ? 1 : 0,
+    database: params.database,
+  });
 });
